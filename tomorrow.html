@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> journal </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Mynerve&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+
+    
+    
+
+    <div class="home-button">
+        <a href="index.html"> home </a>
+        </div>
+
+    <div id="tomorrow" class="background-image">
+        <img class="tomorrow-bg" src="img/jadereading.jpg">
+        <audio id="hoverAudio" src="audio/plop.wav"></audio>
+        <div id="book" class="png-overlay">
+        <a href="neverthere.html"> <img src="img/jadereading1.png"></a>
+        </div>
+
+
+    </div>
+
+    <script>
+        const book = document.getElementById('book');
+        const hoverAudio = document.getElementById('hoverAudio');
+
+        book.addEventListener('mouseover', () => {
+            hoverAudio.currentTime = 0; // Reset audio to start
+            hoverAudio.play();
+        });
+
+        book.addEventListener('mouseout', () => {
+            hoverAudio.pause();
+            hoverAudio.currentTime = 0; // Reset audio to start
+        });
+
+
+    </script>
+
+    <div class="text">
+
+        <p>the end of tomorrows </p><br>
+        <br>
+        <p>i wish today would last forever</p> <br>
+        <p>i wish the night would grow longer and longer, </p> <br>
+        <p>until the sun forgot to dawn</p> <br>
+        <p>i’d sink into its inky shadows</p> <br>
+        <p>and at once feel at peace</p><br>
+        <p>the stars would envelop me in their warmth</p> <br>
+        <p>and the clouds would muffle all the noise</p><br>
+        <p>the moon would whisper in my ear,</p><br>
+        <p>“you don’t have to worry anymore”</p><br>
+        <p>and i wouldn’t, not a second longer.</p><br>
+    </div>
+
+  </body>
+</html>

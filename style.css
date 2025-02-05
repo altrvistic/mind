@@ -1,0 +1,434 @@
+
+body {
+    margin: 0px;
+    background: black;
+    overflow: hidden;
+}
+
+/* fonts */
+.monsieur-la-doulaise-regular {
+    font-family: "Monsieur La Doulaise", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.mynerve-regular {
+    font-family: "Mynerve", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.roboto-mono-idk {
+    font-family: "Roboto Mono", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  
+.background-image {
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden; 
+    position: relative;
+    opacity: 70%;
+}
+
+#index {
+    background-image: url(img/entrance.jpg);   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#about {
+    background-image: url(img/jadeandjeanne.jpg);
+    display: flex;   
+    align-content: center;
+    justify-content: center;
+}
+
+#newyear {
+    background-image: url(img/kitchenmain.jpg);   
+    display: flex;
+}
+
+#newyear img.kitchen-bg{
+    width: 1550px;
+    height: 1033px;
+    position: relative;
+    top: -100px;
+}
+
+#tomorrow img.tomorrow-bg{
+    width: 1550px;
+    height: 1033px;
+    position: relative;
+    top: -100px;
+}
+
+#never-there-img img.neverthere-bg{
+    width: 1550px;
+    height: 1033px;
+    position: relative;
+    top: -100px;
+}
+
+.tomorrow {
+    background-image: url(img/jadereading.jpg);   
+    opacity: 50%;
+}
+
+.never-there-img {
+    background-image: url(img/myroom2.jpg);
+    opacity: 90%;
+}
+
+body.birthday {
+    /* background-image: url(img/familybday.jpg); */
+    opacity: 90%;
+    
+
+}
+
+canvas {
+    display: block; 
+}
+
+canvas img {
+    z-index: -2;
+}
+
+
+.hidden {
+    display: none;
+}
+
+#window {
+    right: -12px;
+    top: 35px;
+}
+
+#window img {
+    height: 590px;
+}
+
+#apple {
+    right: 400px;
+    top: 595px;
+}
+
+#apple img {
+    height: 57px;
+}
+
+@keyframes example {
+    0%, 50%, 100% {filter: none;}
+    25%, 75% {-webkit-filter: drop-shadow( 5px 5px 10px cyan); filter: drop-shadow( 5px 5px 10px cyan);}
+  }
+
+.png-overlay {
+    position: absolute;
+}
+
+.png-overlay img {
+    animation-name: example;
+    animation-duration: 4s;
+    animation-delay: 1s;
+}
+
+.png-overlay img:hover {
+  -webkit-filter: drop-shadow( 5px 5px 10px cyan);
+  filter: drop-shadow( 5px 5px 10px cyan);
+  transition: 1s;
+}
+
+
+#book {
+    right: 767px;
+    top: 376px;
+}
+
+#book img {
+    height: 163px;
+}
+
+#alarm {
+    right: 785px;
+    top: 440px;
+}
+
+#alarm img {
+    height: 63px;
+}
+
+#container {
+    position: fixed;
+    bottom: 0;
+    margin: 50px;
+    font-family: "Roboto Mono",'Courier New', Courier, monospace;
+    max-width: 600px;
+    color: white;
+    font-size: large;
+    text-shadow: 2px 2px 1px black;
+    line-height: 150%;
+}
+
+#container:hover {
+    cursor: pointer;
+}
+
+.text {
+    position: absolute;
+    right: 0;
+    margin: 50px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    max-width: 600px;
+    color:deeppink;
+    font-size: large;
+    text-shadow: 2px 2px 1px black;
+    bottom:0;
+    text-align: right;
+}
+
+.text p {
+    margin: 5px;
+}
+
+#never-there {
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 50px;
+    margin-bottom: 25px;
+    left: 0;
+    bottom: 0;
+    color:rgb(212, 255, 20);
+    font-size: x-large;
+    text-shadow: 2px 2px 1px black;
+    animation-name: never-there;
+    animation-duration: 240s;
+    animation-delay: 1s;
+}
+
+@keyframes never-there {
+    0% {opacity: 100%;}
+    10% {opacity: 0%;}
+    100% {opacity: 0%;}
+  }
+
+audio {
+    position: fixed;
+    bottom: 0;
+    margin: 50px;
+    right: 0px;
+    width: 100px;
+}
+
+.link {
+    position: fixed;
+    font-size: 200px;
+}
+
+
+.link a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.link a:hover {
+    display: block;
+    transition: all
+        ease-in-out 2s
+    ;
+}
+
+.fix-stroke {
+   paint-order: stroke fill;
+}
+
+.home-button {
+    position: fixed;
+    margin: 50px;
+    margin-left: 50px ;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.home-button a {
+    color: rgb(177, 177, 177);
+}
+
+.about-home-button {
+    align-self: bottom;
+    margin: 20px 0px;
+
+}
+
+.about-home-button a {
+    color: gray;
+}
+
+.birthday {
+    cursor: url(img/erasericon.png), grab;
+}
+
+.typing-container {
+    font-family: "Monsieur La Doulaise", Courier, monospace;
+    font-size: 300px;
+    -webkit-text-stroke: 1px rgb(209, 209, 209);
+    text-shadow: 3px 3px 1px rgb(29, 29, 29);
+    color: rgb(248, 247, 242); /* Set text color to white */
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    height: 37vh;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes cursor-blink {
+    0%, 100% { border-color: white; }
+    50% { border-color: transparent; }
+}
+
+.typing-container span {
+    display: inline-block;
+    animation: blink 0.5s ease-in-out 2;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: white;
+    animation: blink 1s infinite;
+}
+
+.space {
+    display: inline-block;
+    min-width: 0.5em; 
+}
+
+::selection {
+    background: rgb(255, 15, 167);
+  }
+
+.description {
+    display: flex;
+    align-self: center;
+    font-size: 20px;
+    background-color: rgb(29, 29, 29);
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    text-shadow: 1px 1px 3px rgb(29, 29, 29);
+    color: rgb(209, 209, 209);
+    animation: fade-in 8s;
+}
+
+.description p {
+    margin: 2px;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.start-button {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    font-size: 20px;
+    background-color: rgb(209, 209, 209);
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    color: rgb(29, 29, 29);
+    border-color: rgb(176, 176, 176);
+    animation: fade-in 8s;
+    display: flex;
+    text-align: justify;
+    width: 150px;
+    margin: 20px;
+    padding: 5px 20px;
+}
+
+.start-button:hover {
+    background-color: rgb(29, 29, 29);
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    color: rgb(176, 176, 176);
+    border-color: rgb(29, 29, 29);
+    cursor: pointer;
+}
+
+#startButton {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    font-size: 20px;
+    background-color: rgb(209, 209, 209);
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    color: rgb(29, 29, 29);
+    border-color: rgb(176, 176, 176);
+    animation: fade-in 8s;
+    display: flex;
+    text-align: justify;
+    width: 150px;
+    margin: 20px;
+    padding: 5px 20px;
+}
+
+#startButton.clicked {
+    background-color: rgb(29, 29, 29);
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    color: rgb(176, 176, 176);
+    border-color: rgb(29, 29, 29);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.about-text {
+    background-image: url(img/notepad.jpg);
+    background-position-x: -20px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+    padding: 77px 20px 20px 135px;
+    font-size: 20px;
+    font-family: "Mynerve", Arial, Helvetica, sans-serif;
+    color: rgb(29, 29, 29);
+    animation: fade-in 2s;
+    margin: 20px;
+    line-height: 30px;
+    box-shadow: 2px 2px 0px rgb(72, 73, 39);
+}
+
+#birthday-text {
+    font-family: "Roboto Mono", Arial, Helvetica, sans-serif;
+    position: fixed;
+    width: 700px;
+    bottom: 20px;
+    font-size: 40px;
+    left: 40px;
+    color:rgb(65, 252, 255);
+    text-shadow: 2px 1px 0px rgb(1, 86, 88);
+    user-select: none;
+    z-index: 0;
+}
+
+#birthday-text p {
+    margin-top: 0px;
+}

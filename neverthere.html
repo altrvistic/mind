@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> journal </title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div class="home-button">
+        <a href="index.html"> home </a>
+    </div>
+
+    <audio id="hoverAudio" src="audio/plop.wav"></audio>
+
+    <div id="never-there-img" class="background-image">
+        <img class="neverthere-bg" src="img/myroom2.jpg">
+        <div id="alarm" class="png-overlay ">
+        <a href="index.html"> <img src="img/myroom2.png" class="overlay-image"></a>
+        </div>
+        <div id="never-there">
+            <p>One day you’ll look at me and find that what you saw that first day was never there at all.</p>
+        </div>
+        <!-- <img src="img/myroom2.jpg" class="background-image"> -->
+    </div>
+
+   <script>
+      const book = document.getElementById('alarm');
+        const hoverAudio = document.getElementById('hoverAudio');
+
+        alarm.addEventListener('mouseover', () => {
+            hoverAudio.currentTime = 0; // Reset audio to start
+            hoverAudio.play();
+        });
+
+        alarm.addEventListener('mouseout', () => {
+            hoverAudio.pause();
+            hoverAudio.currentTime = 0; // Reset audio to start
+        });
+   </script>
+  </body>
+</html>

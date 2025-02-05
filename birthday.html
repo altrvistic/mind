@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> journal </title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="birthday">
+ 
+    <audio id="birthdayAudio" src="audio/It Feels Like I've Forgotten Something.mp3" loop></audio>
+
+    <div class="home-button">
+    <a href="newyear.html"> back </a>
+    </div>
+
+    <div id="birthday-text">
+        <p> in that moment, i wanted nothing more than to smooth over each and every white hair on her head — but there was nothing these hands could do. </p>
+    </div>
+    <canvas id="canvas"></canvas>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const image = new Image();
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        image.src = "img/familybday.jpg";
+        image.onload = () => {
+            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+            applyBlur();
+        }
+
+        function applyBlur() {
+            ctx.filter = 'blur(16px)'; // Apply a blur filter
+            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+            ctx.filter = 'none';
+        }
+
+        let isDragging = false;
+        canvas.addEventListener('mousedown', () => isDragging = true);
+        canvas.addEventListener('mouseup', () => isDragging = false);
+        canvas.addEventListener('mouseleave', () => isDragging = false);
+
+        canvas.addEventListener('mousemove', (event) => {
+            if (isDragging) {
+                const rect = canvas.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+                eraseBlurAt(x, y);
+            }
+        });
+
+        function eraseBlurAt(x, y) {
+            const clearSize = 30; // Adjust size of cleared area
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(x, y, clearSize / 2, 0, 2 * Math.PI);
+            ctx.clip();
+            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+            ctx.restore();
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+            applyBlur();
+        });
+
+        
+
+        document.addEventListener('click', function() {
+            const birthdayAudio = document.getElementById('birthdayAudio');
+        
+            if (!birthdayAudio.playing) {
+                birthdayAudio.volume = 0;
+                birthdayAudio.play();
+
+                let fadeAudio = setInterval(function () {
+                    if (birthdayAudio.volume < 1) {
+                        birthdayAudio.volume += 0.1; // Increase the volume gradually
+                    } else {
+                        clearInterval(fadeAudio); // Clear the interval once the volume is at max
+                    }
+                }, 200); 
+
+                birthdayAudio.playing = true;
+            }
+        });
+    </script>
+  </body>
+</html>

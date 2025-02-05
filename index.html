@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> journal </title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <audio id="clickAudio" src="audio/wetclick.wav"></audio>
+    <audio id="letterAudio" src="audio/spacebar.mp3"></audio>
+
+
+    <div id="index" class="background-image">
+      <div class="typing-container" id="typingContainer"></div>
+      <audio id="typingAudio" src="audio/Gymnopédie No. 1.mp3" loop></audio>
+
+      <div class="description">
+        <p> [for optimal viewing experience, please use full-screen and turn volume on.]</p>
+      </div>
+
+      <div class="buttons">
+      <button class="start-button" id="startButton"> music: off </button>
+      <button class="start-button" onclick="location.href='newyear.html'" type="button">
+        enter </button>
+
+      <button class="start-button" onclick="location.href='about.html'" type="button">
+          about </button>
+      </div>
+
+      <script>
+        const text = "welcome home";
+        const initialButtonText = "music: off";
+        const playingButtonText = "music: on";
+        const typingContainer = document.getElementById('typingContainer');
+        const audioElement = document.getElementById('typingAudio');
+        const letterAudio = document.getElementById('letterAudio');
+        const startButton = document.getElementById('startButton');
+
+        let index = 0;
+        let isPlaying = false;
+      
+
+        function fadeIn(audio, duration) {
+            const step = 0.1;
+            const interval = duration / (1 / step);
+            let volume = 0;
+            const fadeInInterval = setInterval(() => {
+                if (volume < 1) {
+                    volume += step;
+                    audio.volume = volume;
+                } else {
+                    clearInterval(fadeInInterval);
+                }
+            }, interval);
+        }
+
+        function fadeOut(audio, duration) {
+            const step = 0.1;
+            const interval = duration / (1 / step);
+            let volume = 1;
+            const fadeOutInterval = setInterval(() => {
+                if (volume > 0) {
+                    volume -= step;
+                    audio.volume = volume;
+                } else {
+                    clearInterval(fadeOutInterval);
+                    audio.pause();
+                    audio.currentTime = 0; // Reset the audio to the beginning
+                }
+            }, interval);
+        }
+
+        function startTypingAndAudio() {
+          if (!isPlaying) {
+                // Start the audio and fade in
+                audioElement.volume = 0; // Start with volume at 0
+                audioElement.play().then(() => {
+                    fadeIn(audioElement, 2000); // Fade in over 2 seconds
+                }).catch(error => {
+                    console.error('Error playing audio:', error);
+                });
+
+                // Change the button text
+                startButton.textContent = playingButtonText;
+                this.classList.toggle('clicked');
+                isPlaying = true;
+            } else {
+                // Fade out the audio and stop
+                fadeOut(audioElement, 2000);
+
+                // Reset the button text
+                startButton.textContent = initialButtonText;
+                this.classList.toggle('clicked');
+                isPlaying = false;
+            }
+        }
+
+        function type() {
+          if (index < text.length) {
+                const span = document.createElement('span');
+                span.textContent = text.charAt(index);
+                if (span.textContent === ' ') {
+                    span.classList.add('space'); // Add class to spaces
+                }
+                console.log(`Adding character: '${span.textContent}'`); // Log the character being added
+                typingContainer.insertBefore(span, cursor);
+               
+                letterAudio.currentTime = 0; // Reset audio to start
+                letterAudio.play();
+
+                span.style.animation = 'blink 0.3s ease-in-out';
+                
+                index++;
+                setTimeout(type, 650); // Adjust typing speed here
+            } else {
+                // Remove the blinking cursor after typing is done
+                cursor.style.display = 'none';
+            }
+        }
+
+        const cursor = document.createElement('div');
+        cursor.classList.add('cursor');
+        typingContainer.appendChild(cursor);
+
+        window.addEventListener('beforeunload', () => {
+            fadeOut(audioElement, 2000); // Fade out over 2 seconds
+        });
+
+        startButton.addEventListener('click', startTypingAndAudio);
+        type();
+
+        const clickableElements = document.querySelectorAll('.start-button');
+        const clickAudio = document.getElementById('clickAudio');
+
+        clickableElements.forEach(element => {
+            element.addEventListener('click', () => {
+                clickAudio.currentTime = 0; // Reset audio to start
+                clickAudio.play().then(() => {
+                    console.log('Audio is playing');
+                }).catch(error => {
+                    console.error('Error playing audio:', error);
+                });
+            });
+        });
+        
+
+        clickableDiv.addEventListener('click', () => {
+            clickAudio.currentTime = 0; // Reset audio to start
+            clickAudio.play().then(() => {
+                console.log('Audio is playing');
+            }).catch(error => {
+                console.error('Error playing audio:', error);
+            });
+        });
+
+      
+    </script>
+
+    
+    </div>
+
+
+
+
+
+
+  </body>
+</html>

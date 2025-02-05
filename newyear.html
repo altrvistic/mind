@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> journal </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Mynerve&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+
+    <audio id="hoverAudio" src="audio/plop.wav"></audio>
+
+    <div id="newyear" class="background-image">
+    
+      <img class="kitchen-bg" src="img/kitchenmain.jpg">
+
+      <div class="home-button">
+        <a href="index.html"> home </a>
+        </div>
+
+      <div id="window" class="png-overlay">
+        <a href="tomorrow.html"> <img src="img/kitchenmain2.png"></a>
+      </div>
+
+      <div id="apple" class="png-overlay">
+        <a href="birthday.html"> <img src="img/kitchenmain1.png"></a>
+      </div>
+
+    <audio id="newyearAudio" src="audio/glass beach - (forever？？？？？？？？？).mp3" loop></audio>
+
+
+    <div id="container">
+      <div id="div1">
+        [click me, please]
+      </div>
+      <div id="div2" class="hidden">
+        “球球和笑笑! 下来拜菩萨。”
+        <br>
+        "Jade and Ella! Come down and pray to Buddha."
+        <br><br>
+        I run downstairs — anxious to get it over with — and my sister follows. My dad is FaceTiming Nainai (my grandma) just like he does every Sunday. <br>
+        <br>
+        Today, however, is a little bit special.
+      </div>
+      <div id="div2" class="hidden">
+        Chinese New Year is coming: it’s time for the incense in the pantry to make its annual debut. 
+      </div>
+      <div id="div3" class="hidden">
+        The familiar scent meanders through my memories,
+        probing tendrils excavating the dusty archives —
+        transporting me to my grandparents’ convenience store.
+      </div>
+      <div id="div4" class="hidden">
+        Modest concrete floors and ageing walls, <br>
+        defenseless against the permeating powers <br>
+        of humidity and heat laced with tobacco <br>
+        smoked by some uncle I don't know <br>
+        <br>
+        Grumbling mopeds reign king on these naked streets,<br>
+        forming a discordant symphony with the barking of strays.<br>
+      </div>
+      <div id="div5" class="hidden">
+        It’s been over four years since we last visited, and yet I can recall every detail — down to the jar of sour orange candies at the counter. <br>
+        <br>
+        We used to visit around every other year. <br> You know, before COVID and before plane tickets cost more than triple what they used to.
+      </div>
+      <div id="div6" class="hidden">
+        My dad’s phone is propped up on the sliding glass door when I arrive. Nainai leads us in the prayers; my dad repeats the blessings after her in Ningbo dialect. <br>
+        <br>
+        “May Jade and Ella be smart,” he says, bowing three times. We bow a couple times standing, and a couple times kneeling. 
+      </div>
+      <div id="div7" class="hidden">
+        Ella’s eyes meet mine in the reflection on the door — both of us attempting to mirror Dad — and I wonder if we’ll ever know these motions well enough to do them on our own. Though it was a yearly tradition, it felt more like a clumsy performance. Our black hair and almond eyes were but a costume, disguising our star-spangled ignorance...
+
+      </div>
+      <div id="div8" class="hidden">
+        I recall something my mom once told me:<br>
+        <br>
+        ABC’s (Americans Born Chinese) are like bananas: yellow on the outside, and white on the inside.
+      </div>
+      <div id="div9" class="hidden">
+        Between the first and second round of prayers, Nainai holds up fortune slips and asks me to read them; I fumble my way through half of the characters, and Dad fills in the rest. Ella has already dashed away to god knows where. <br>
+        <br>
+        “Nainai said eight more minutes,” my dad informs me, sensing my patience slipping away.
+      </div>
+      <div id="div10" class="hidden">
+        I look around the kitchen as I wait. 
+      </div>
+      <div id="div11" class="hidden">
+        My mom isn’t usually into holiday festivities, but she hung up red paper lanterns this year. There are only two or three of them, the small pops of red contrasting starkly against the dull yellow wallpaper. 
+        <br><br>
+        I'd wager that there's hardly any others of their kind in this suburban neighborhood. Poor things.
+      </div>
+      <div id="div13" class="hidden">
+        ...
+      </div>
+      <div id="div12" class="hidden">
+        I wonder if I’ll ever know what a real Chinese New Year is supposed to look like.
+      </div>
+      <div id="div14" class="hidden">
+        Maybe there's no difference between homesickness for a home you can't return to and a home that never felt like yours to begin with. 
+      </div>
+      <div id="div15" class="hidden">
+        [fin.]
+      </div>
+  </div>
+
+    <script>
+        const audioElement = document.getElementById('newyearAudio');
+        const div1 = document.getElementById('div1');        
+        const div15 = document.getElementById('div15');
+        const container = document.getElementById('container');
+        let isPlaying = false;
+
+        document.getElementById( 'container' ).onclick = function( e ) {
+        var evt = e || window.event,
+        target = evt.target || evt.srcElement;
+        if ( target.id.substr( 0,3 ) === 'div' ) {
+          target.className = 'hidden';
+          target.nextElementSibling.className = '';
+
+        }
+      };
+
+      div1.addEventListener('click', startAudio);
+        type();
+
+        function fadeIn(audio, duration) {
+            const step = 0.1;
+            const interval = duration / (1 / step);
+            let volume = 0;
+            const fadeInInterval = setInterval(() => {
+                if (volume < 1) {
+                    volume += step;
+                    audio.volume = volume;
+                } else {
+                    clearInterval(fadeInInterval);
+                }
+            }, interval);
+        }
+
+        function fadeOut(audio, duration) {
+            const step = 0.1;
+            const interval = duration / (1 / step);
+            let volume = 1;
+            const fadeOutInterval = setInterval(() => {
+                if (volume > 0) {
+                    volume -= step;
+                    audio.volume = volume;
+                } else {
+                    clearInterval(fadeOutInterval);
+                    audio.pause();
+                    audio.currentTime = 0; // Reset the audio to the beginning
+                }
+            }, interval);
+        }
+      function startAudio() {
+          if (!isPlaying) {
+                // Start the audio and fade in
+                audioElement.volume = 0; // Start with volume at 0
+                audioElement.play().then(() => {
+                    fadeIn(audioElement, 2000); // Fade in over 2 seconds
+                }).catch(error => {
+                    console.error('Error playing audio:', error);
+                });
+
+                isPlaying = true;
+            } else {
+                // Fade out the audio and stop
+                fadeOut(audioElement, 2000);
+                isPlaying = false;
+            }
+        }
+
+        div15.addEventListener('click', fadeOut);
+        type();
+    
+        
+
+    </script>
+
+    <script>
+        var hoverStart = document.getElementById('window');
+        var hoverStart2 = document.getElementById('apple');
+        var hoverAudio = document.getElementById('hoverAudio');
+
+        hoverStart.addEventListener('mouseover', () => {
+            hoverAudio.currentTime = 0; // Reset audio to start
+            hoverAudio.play();
+        });
+
+        hoverStart.addEventListener('mouseout', () => {
+            hoverAudio.pause();
+            hoverAudio.currentTime = 0; // Reset audio to start
+        });
+
+        hoverStart2.addEventListener('mouseover', () => {
+            hoverAudio.currentTime = 0; // Reset audio to start
+            hoverAudio.play();
+        });
+
+        hoverStart2.addEventListener('mouseout', () => {
+            hoverAudio.pause();
+            hoverAudio.currentTime = 0; // Reset audio to start
+        });
+    </script>
+   
+
+
+</div>
+  </body>
+</html>
